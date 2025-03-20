@@ -16,9 +16,16 @@ mascara_azul = cv2.inRange(imagen_rgb, np.array([100, 50, 50]), np.array([130, 2
 mascara_no_azul = cv2.bitwise_not(mascara_azul)
 
 # Filtrar la imagen para eliminar el cielo azil
-imagen_sin_cielo = cv2.bitwise_and(imagen, imagen, mask=mascara_no_azul)
+imagen_nubes = cv2.bitwise_and(imagen, imagen, mask=mascara_no_azul)
 
 
+# Calcular el área de nubes detectadas y su porcentaje en la imagen
+area_total = imagen.shape[0] * imagen.shape[1]
+area_nubes = cv2.countNonZero(mascara_no_azul)
+area_nubes_porcentaje = (area_nubes / area_total) * 100
+
+
+print(f"Area de nubes: {area_nubes_porcentaje}")
 
 plt.figure(figsize=(12, 6))
 
@@ -27,7 +34,7 @@ plt.imshow(cv2.cvtColor(imagen, cv2.COLOR_BGR2RGB))
 plt.title('Imagen Original')
 
 plt.subplot(1, 2, 2)
-plt.imshow(cv2.cvtColor(imagen_sin_cielo, cv2.COLOR_BGR2RGB))
+plt.imshow(cv2.cvtColor(imagen_nubes, cv2.COLOR_BGR2RGB))
 plt.title('Mostrando solo nubes')
 
 plt.show()
