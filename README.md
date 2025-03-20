@@ -8,9 +8,9 @@
 
 <p>Se utilizó python con la agregación de las siguientes librerías: </p>
 <ul>
-    <li> <b>opencv-python</b> para manejar los filtros y edición de la imagen</li>
-    <li> <b>numpy</b> para utilizar arreglos</li>
-    <li> <b>matplotlib</b> para mostrar las imagenes</li>
+    <li> opencv-python : para manejar los filtros y edición de la imagen</li>
+    <li> numpy : para utilizar arreglos</li>
+    <li> matplotlib : para mostrar las imagenes</li>
 </ul>
 
 <h2>Descripción del proceso</h2>
