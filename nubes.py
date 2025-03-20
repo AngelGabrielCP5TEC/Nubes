@@ -32,11 +32,11 @@ imagen_gris = cv2.cvtColor(imagen_nubes, cv2.COLOR_BGR2GRAY)
 # en la imagen
 area_total = imagen.shape[0] * imagen.shape[1] 
 area_nubes = cv2.countNonZero(mascara_no_azul) 
-area_nubes_porcentaje = (area_nubes / area_total) * 100 
+area_nubes_porcentaje = round(((area_nubes / area_total) * 100), 2)
 
 # Calcula la intencidad del color de las nubes 
 # (entre mas alto mas blanco es el color)
-tono_promedio_nubes = np.mean(imagen_gris[mascara_no_azul == 255]) 
+tono_promedio_nubes = round(np.mean(imagen_gris[mascara_no_azul == 255]), 2)
 
 # Clasifica el clima según el tono promedio de las nubes 
 # en diferentes categorías
